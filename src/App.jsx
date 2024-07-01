@@ -3,7 +3,7 @@ import ErrorPage from "./components/pages/errorpage"
 function App() {
    return (
       <BrowserRouter
-      basename={import.meta.env.DEV ? '/' : '/repo_name/'}
+      basename={import.meta.env.DEV ? '/' : '/e-commerce_project/'}
       >
          <Routes>
             <Route path="*" element={<ErrorPage />} />
