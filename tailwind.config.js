@@ -5,7 +5,14 @@ export default {
      "./src/**/*.{js,ts,jsx,tsx}",
    ],
    theme: {
-     extend: {},
+     extend: {
+      backgroundImage: {
+         'img1': "url('/components/pages/w14.jpg')",
+         'img3': "url('/components/pages/w15.jpg')",
+         'img2': "url('/components/pages/w16.jpg')",
+         'img4': "url('/components/pages/w17.jpg')"
+      }
+     },
    },
    plugins: [],
  }
