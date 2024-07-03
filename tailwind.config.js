@@ -6,6 +6,9 @@ export default {
    ],
    theme: {
      extend: {
+      fontFamily:{
+         'main': 'Raleway'
+      },
       backgroundImage: {
          'img1': "url('/components/pages/w14.jpg')",
          'img3': "url('/components/pages/w15.jpg')",
