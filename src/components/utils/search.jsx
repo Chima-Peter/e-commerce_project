@@ -3,8 +3,8 @@ import { useState } from 'react'
 function Search() {
    const [toggle, settoggle] = useState(true)
    const [searchData, setSearchData] = useState({
-      make: '',
-      model: '',
+      make: 'Audi',
+      model: 'Audi',
       minPrice: '0',
       maxPrice: '250000',
       condition: toggle
@@ -15,11 +15,14 @@ function Search() {
    }
    const handleSearchData = (event) => {
       setSearchData({ ...searchData, [event.target.name]: event.target.value})
-      console.log(searchData)
+   }
+   const handleSubmit = () => {
+      console.log('');
    }
   return (
    <form 
-      className='flex w-[280px] flex-col gap-6  py-3 font-main px-5 border border-white rounded-lg bg-white shadow-lg shadow-blue-950'>
+      onSubmit={handleSubmit} 
+      className='flex w-[280px] flex-col gap-3  py-3 font-main px-5 border border-white rounded-lg bg-white shadow-lg shadow-blue-950'>
       <div 
          className='flex gap-0 border rounded-lg border-blue-600'>
          <button  
@@ -74,30 +77,33 @@ function Search() {
       <div 
          className='flex flex-col gap-1'>
          <p 
-             className='px-2 text-sm font-semibold  text-blue-950'>
-            Set Price
+             className='px-2 text-[12px] font-semibold  text-blue-950'>
+            Set Price($)
          </p>
          <div className='px-3 flex py-2 items-start  rounded-md border border-gray-300 gap-1 justify-evenly'>
             <label
-               className='text-xs font-medium'
+               className='text-[10px] font-semibold'
                htmlFor="minPrice">Minimum
                <input 
                   type="number" 
                   name="minPrice" 
                   id="minPrice" 
                   autoFocus
+                  min={'0'}
                   value={searchData.minPrice}
                   placeholder='0'
                   onChange={handleSearchData}
                   className='border border-gray-400 focus:border-blue-600 px-1 py-1 text-sm font-medium placeholder:text-gray-400 
-                  onChange={handlePrice}placeholder:text-xs placeholder:font-normal focus:border-2 focus:outline-none w-[100px] rounded-md' />
+                  placeholder:text-xs placeholder:font-normal focus:border-2 focus:outline-none w-[100px] rounded-md' />
             </label>
             <label
-               className='text-xs font-medium'
+               className='text-[10px] font-semibold'
                htmlFor="maxPrice"> Maximum
                <input 
                   type="number" 
                   name="maxPrice" 
+                  min={'0'}
+                  max={'1000000'}
                   id="maxPrice" 
                   value={searchData.maxPrice} 
                   onChange={handleSearchData}
