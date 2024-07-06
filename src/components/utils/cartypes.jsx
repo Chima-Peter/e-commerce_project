@@ -19,11 +19,11 @@ function CarTypes({index}) {
     ];
     const slicedType = carCategories.slice(0, index)
   return (
-    <div className='flex flex-wrap w-full gap-3 overflow-hidden'>
+    <div className=' customScroll flex w-[100%] overflow-x-auto gap-3'>
       {
          slicedType.map((car) => (
             <div 
-               className='flex text-center flex-col cursor-pointer hover:bg-gray-200 hover:bg-clip-padding border rounded-md border-gray-400 items-center justify-center w-[80px] h-[60px]' 
+               className='flex text-center flex-col cursor-pointer hover:bg-gray-200 hover:bg-clip-padding border rounded-md border-gray-400 items-center justify-center min-w-[80px] h-[60px]' 
                key={car}
                >
                <TbCarSuv />

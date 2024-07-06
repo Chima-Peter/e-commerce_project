@@ -16,7 +16,7 @@ function CarBrands({index}) {
       "Renault",
       "Peugeot",
       "Tesla",
-      "Stellantis (Fiat Chrysler Automobiles)",
+      "Stellantis",
       "Mitsubishi",
       "MG",
       "Volvo",
@@ -26,11 +26,11 @@ function CarBrands({index}) {
 
     const slicedBrands = carBrands.slice(0, index)
   return (
-    <div className='flex flex-wrap w-full gap-3 overflow-hidden'>
+    <div className='flex customScroll w-[100%] gap-3 overflow-x-auto'>
       {
          slicedBrands.map((car) => (
             <div 
-               className='flex flex-col border rounded-md border-gray-400 items-center justify-center hover:bg-gray-200 hover:bg-clip-padding cursor-pointer text-center  w-[80px] h-[60px]' 
+               className='flex flex-col border rounded-md border-gray-400 items-center justify-center hover:bg-gray-200 hover:bg-clip-padding cursor-pointer text-center min-w-[80px] h-[60px]' 
                key={car}
                >
                   <TbCarSuv />

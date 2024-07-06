@@ -7,7 +7,8 @@ export default {
    theme: {
      extend: {
       fontFamily:{
-         'main': 'Raleway'
+         'main': 'Raleway',
+         'price': 'Roboto'
       },
       backgroundImage: {
          'img1': "url('/components/pages/w14.jpg')",

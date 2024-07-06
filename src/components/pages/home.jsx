@@ -51,11 +51,13 @@ function Home() {
   const addBorder = () => {
    const nav = navRef.current
 }
+
+
   return (
-   <main className='flex flex-col font-main gap-14' onScroll={addBorder}>
+   <main className='overflow-hidden flex flex-col font-main gap-14' onScroll={addBorder}>
       <DesktopBar />
       <Carousel 
-         infiniteLoop useKeyboardArrows autoPlay stopOnHover={true} transitionTime={'1000'} showThumbs={false} showStatus={false} interval={'6000'}>
+         infiniteLoop useKeyboardArrows autoPlay stopOnHover={true} showIndicators={false} transitionTime={'1000'} showThumbs={false} showStatus={false} interval={'6000'}>
          {
             slides.map((slide) => (
                <div 
@@ -78,7 +80,7 @@ function Home() {
             <Search />
          </MediaQuery>
       </div>
-      <div className="flex flex-col gap-5 ml-20">
+      <div className="flex flex-col gap-5 mr-5 ml-20">
          <div className="w-full flex items-center justify-between">
             <h3 className="text-blue-950 font-bold text-xl">
                Browse by Category
@@ -90,9 +92,9 @@ function Home() {
                <MdArrowOutward />
             </Link>
          </div>
-         <CarTypes index={'10'} />
+         <CarTypes index={'12'} />
       </div>
-      <div className="flex flex-col gap-5 ml-20">
+      <div className="flex flex-col gap-5 mr-5 ml-20">
          <div className="w-full flex items-center justify-between">
             <h3 className="text-blue-950 font-bold text-xl">
                Explore Our Premium Brands
@@ -104,10 +106,10 @@ function Home() {
                <MdArrowOutward />
             </Link>
          </div>
-         <CarBrands index={'10'} />
+         <CarBrands index={'12'} />
       </div>
       <div 
-         className="flex flex-col gap-3 py-10 pl-20 bg-gray-200">
+         className="flex flex-col gap-4 py-10 pr-5 pl-20 bg-gray-200">
          <div className="w-full flex items-center justify-between">
             <h3 className="text-blue-950 font-bold text-xl">
                Featured Listings
@@ -119,8 +121,8 @@ function Home() {
                <MdArrowOutward />
             </Link>
          </div>
-         <CarBrands />  
-         <Listin /> 
+         <Listin index={'12'}/> 
+         {/* <CarBrands index={'12'} />   */}
       </div>
    </main>
   )
