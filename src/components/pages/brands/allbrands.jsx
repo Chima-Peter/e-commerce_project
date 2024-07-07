@@ -1,7 +1,7 @@
 import React from 'react'
-import {DesktopBar} from '../../utils/desktopBar'
-import CarBrands from '../../utils/carbrands'
-import DesktopFooter from '../../utils/desktopFooter'
+import {DesktopBar} from '../../utils/nav/desktopBar'
+import CarBrands from '../../utils/display/carbrands'
+import DesktopFooter from '../../utils/nav/desktopFooter'
 
 function AllBrands() {
   return (

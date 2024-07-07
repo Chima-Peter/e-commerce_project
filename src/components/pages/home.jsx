@@ -1,16 +1,16 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from 'react-responsive-carousel'
-import { HomeDesktopBar } from '../utils/desktopBar'
+import { HomeDesktopBar } from '../utils/nav/desktopBar'
 import Search from '../utils/search'
 import MediaQuery from 'react-responsive'
 import { MdArrowOutward } from "react-icons/md";
 import { Link } from "react-router-dom"
-import Box from "../utils/box"
-import CarBrands from "../utils/carbrands"
-import CarTypes from "../utils/cartypes"
+import Box from "../utils/display/box"
+import CarBrands from "../utils/display/carbrands"
+import CarTypes from "../utils/display/cartypes"
 import { useRef, useEffect, useState } from "react"
-import Listin from "../utils/listings"
-import DesktopFooter from "../utils/desktopFooter"
+import Listin from "../utils/display/listings"
+import DesktopFooter from "../utils/nav/desktopFooter"
 
 function Home() {
    const slides = [

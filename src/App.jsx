@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import ErrorPage from "./components/pages/errorpage"
 import Home from "./components/pages/home"
-import AllTypes from "./components/pages/view/alltypes"
-import AllBrands from "./components/pages/view/allbrands"
+import AllTypes from "./components/pages/types/alltypes"
+import AllBrands from "./components/pages/brands/allbrands"
 
 function App() {
    return (

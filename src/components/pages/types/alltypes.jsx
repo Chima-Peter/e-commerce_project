@@ -1,7 +1,6 @@
-import React from 'react'
-import {DesktopBar} from '../../utils/desktopBar'
-import CarTypes from '../../utils/cartypes'
-import DesktopFooter from '../../utils/desktopFooter'
+import {DesktopBar} from '../../utils/nav/desktopBar'
+import CarTypes from '../../utils/display/cartypes'
+import DesktopFooter from '../../utils/nav/desktopFooter'
 
 function AllTypes() {
   return (
