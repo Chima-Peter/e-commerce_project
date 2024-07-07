@@ -1,17 +1,27 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { EncodeCars, DecodeCars } from './carData/cars'
 
 function Search() {
    const [toggle, settoggle] = useState(true)
+
    const [searchData, setSearchData] = useState({
-      make: 'Audi',
-      model: 'Audi',
+      make: '',
+      model: '',
       minPrice: '0',
       maxPrice: '250000',
       condition: toggle
    })
+   const [carModel, setCarModel] = useState()
+   const [carList, setCarList] = useState()
+   const [show, setShow] = useState(false)
+   const [searchModel, setSearchModel] = useState()
 
    const changeToggle = () => {
       settoggle(!toggle)
+   }
+   const handleMake = (event) => {
+      setSearchData({ ...searchData, [event.target.name]: event.target.value})
+      setCarModel(searchModel.carModels[event.target.value])
    }
    const handleSearchData = (event) => {
       setSearchData({ ...searchData, [event.target.name]: event.target.value})
@@ -19,6 +29,21 @@ function Search() {
    const handleSubmit = () => {
       console.log('');
    }
+
+   useEffect(() => {
+      const fetchData = async () => {
+         EncodeCars()
+         let response = DecodeCars()
+         if (response) {
+               setCarList(response[0].carLists)
+               setSearchModel(response[0])
+               setCarModel(response[0].carModels[response[0].carLists[0]])
+               setShow(true)
+            }
+      }
+      fetchData()
+   }, [])
+
   return (
    <form 
       onSubmit={handleSubmit} 
@@ -38,20 +63,20 @@ function Search() {
          className='flex flex-col py-1 items-start  rounded-md border border-gray-300 gap-1'>
          <label 
             htmlFor='make' className=' px-2 text-[10px] font-semibold  text-blue-950'>
-            Select Makes
+            Select Make
          </label>
          <select 
-            className='text-blue-950 block w-full focus:ring-blue-600 rounded-md   focus:outline-none text-xs px-1 font-semibold' 
+            className='text-blue-950 block w-full focus:ring-blue-600 rounded-md focus:outline-none text-xs px-1 font-semibold' 
             name="make" 
             id="make" 
-            onChange={handleSearchData}>
-            <option value="audi">Audi</option>
-            <option value="benz">Benz</option>
-            <option value="benz2">Benz2</option>
-            <option value="benz3">Benz3</option>
-            <option value="benz4">Benz4</option>
-            <option value="benz5">Benz5</option>
-            <option value="benz6">Benz6</option>
+            onChange={handleMake}>
+            {
+               show && carList.map((car, index) => (
+                  <option value={car} key={`${car}-${index}`}>
+                     {car}
+                  </option>
+               ))
+            }
          </select>
       </div>
       <div
@@ -65,13 +90,13 @@ function Search() {
             name="model" 
             id="model"
             onChange={handleSearchData}>
-            <option value="audi">Audi</option>
-            <option value="benz">Benz</option>
-            <option value="benz2">Benz2</option>
-            <option value="benz3">Benz3</option>
-            <option value="benz4">Benz4</option>
-            <option value="benz5">Benz5</option>
-            <option value="benz6">Benz6</option>
+            {
+               show && carModel.map((car, index) => (
+                  <option value={car} key={`${car}-${index}}`}>
+                     {car}
+                  </option>
+               ))
+            }
          </select>
       </div>
       <div 
@@ -93,7 +118,7 @@ function Search() {
                   value={searchData.minPrice}
                   placeholder='0'
                   onChange={handleSearchData}
-                  className='border border-gray-400 focus:border-blue-600 px-1 py-1 text-sm font-medium placeholder:text-gray-400 
+                  className='font-price text-xs border border-gray-400 focus:border-blue-600 px-1 py-1 font-medium placeholder:text-gray-400 
                   placeholder:text-xs placeholder:font-normal focus:border-2 focus:outline-none w-[100px] rounded-md' />
             </label>
             <label
@@ -108,7 +133,7 @@ function Search() {
                   value={searchData.maxPrice} 
                   onChange={handleSearchData}
                   placeholder='250000'
-                  className='appearance-none border border-gray-400 focus:border-blue-600 px-1 py-1 text-sm font-medium placeholder:text-gray-400 placeholder:text-xs placeholder:font-normal focus:border-2 focus:outline-none w-[100px] rounded-md' />
+                  className='font-price text-xs appearance-none border border-gray-400 focus:border-blue-600 px-1 py-1 font-medium placeholder:text-gray-400 placeholder:text-xs placeholder:font-normal focus:border-2 focus:outline-none w-[100px] rounded-md' />
             </label>
          </div>
       </div>

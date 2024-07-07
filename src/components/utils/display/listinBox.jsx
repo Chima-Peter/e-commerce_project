@@ -7,7 +7,7 @@ function ListinBox({car, index}) {
       <img src={car['carImage']} alt="" className="md:min-w-[300px] md:h-[150px] rounded-t-lg" />
       <div className="flex flex-col gap-2 bg-white p-4 rounded-b-lg">
          <h5 className="text-blue-950 text-xs font-bold font-price">
-            {car.condition} {car.carList.make} {car.carList.model}
+            {car.condition} {car.carData} {car.sortedCarModels[car.carData]}
          </h5>
          <ul className="flex list-disc p-0 m-0">
             <li className="text-[9px] text-blue-950 font-extrabold mx-2">

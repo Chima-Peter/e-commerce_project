@@ -12,28 +12,27 @@ function generateRandomCar() {
      "A powerful and capable SUV for adventures on and off the road.",
      "A fuel-efficient and practical car for city commutes.",
    ];
-   const carLists = [
-  { make: "Toyota", model: "Corolla" },
-  { make: "Honda", model: "Civic" },
-  { make: "Ford", model: "F-Series" },
-  { make: "Tesla", model: "Model 3" },
-  { make: "Toyota", model: "Camry" },
-  { make: "Honda", model: "CR-V" },
-  { make: "Nissan", model: "Rogue" },
-  { make: "Toyota", model: "RAV4" },
-  { make: "Jeep", model: "Wrangler" },
-  { make: "Ford", model: "Mustang" },
-  { make: "Chevrolet", model: "Silverado" },
-  { make: "Ram", model: "1500" },
-  { make: "Hyundai", model: "Tucson" },
-  { make: "Kia", model: "Telluride" },
-  { make: "BMW", model: "X3" },
-  { make: "Mercedes-Benz", model: "GLC-Class" },
-  { make: "Audi", model: "Q5" },
-  { make: "Subaru", model: "Outback" },
-  { make: "Volkswagen", model: "Tiguan" },
-  { make: "Mazda", model: "CX-5" }
-];
+   let carLists = [
+      "Tesla", "Toyota", "Jeep", "Ford", "Chevrolet", "Ram", "Hyundai", "Kia", "BMW", "Mercedes-Benz", "Audi", "Subaru" , "Volkswagen", "Mazda"
+   ];
+   const carModels = {}
+   const sortedCarModels = {}
+   const modelList = [
+      ["Model 3", "Model S", "Model X", "Model Y", "Cybertruck"],
+      ["Camry", "Corolla", "RAV4", "Tacoma", "Highlander"], 
+      ["Wrangler", "Grand Cherokee", "Cherokee", "Gladiator", "Compass"],
+      ["F-150", "Mustang", "Explorer", "Escape", "Bronco"],
+      ["Silverado", "Camaro", "Tahoe", "Malibu", "Spark"],
+      ["1500", "2500", "3500", "Rebel", "Dakota"],
+      ["Sonata", "Elantra", "Tucson", "Palisade", "Santa Fe"],
+      ["Telluride", "Sorento", "Sportage", "K5", "Soul"],
+      ["3 Series", "5 Series", "X3", "X5", "M3"],
+      ["C-Class", "E-Class", "S-Class", "GLC", "GLE"],
+      ["A4", "Q5", "A3", "Q3", "TT"],
+      ["Forester", "Outback", "Legacy", "Impreza", "Crosstrek"],
+      ["Jetta", "Golf", "Tiguan", "Atlas", "Taos"],
+      ["CX-5", "Mazda3", "CX-9", "MX-5", "Mazda6"],
+   ];  
 
 const carImages = [
    "/components/utils/car-1.jpg",
@@ -52,7 +51,14 @@ const carImages = [
    "/components/utils/car-14.jpg",
 ]
 
- 
+   modelList.map((model, index) => {
+   carModels[carLists[index]] = model
+   })
+
+   modelList.map((model, index) => {
+   sortedCarModels[carLists[index]] = model[Math.floor(Math.random() * model.length)]
+   })
+
    const price = numberWithCommas((Math.floor(Math.random() * (500 - 15 + 1)) + 15) * 1000);
    const fuelType = fuelTypes[Math.floor(Math.random() * fuelTypes.length)];
    const carStock = carStocks[Math.floor(Math.random() * carStocks.length)];
@@ -60,16 +66,19 @@ const carImages = [
    const transmission = transmissions[Math.floor(Math.random() * transmissions.length)];
    const description = descriptions[Math.floor(Math.random() * descriptions.length)];
    const carImage = carImages[Math.floor(Math.random() * carImages.length)]
-   const carList = carLists[Math.floor(Math.random() * carLists.length)]
+   const carData = carLists[Math.floor(Math.random() * carLists.length)]
  
    return {
       price,
       fuelType,
+      carModels,
+      sortedCarModels,
+      carLists,
       condition,
       transmission,
       carImage,
       carStock,
-      carList,
+      carData,
       description
    };
  }
