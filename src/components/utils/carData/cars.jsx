@@ -35,20 +35,20 @@ function generateRandomCar() {
    ];  
 
 const carImages = [
-   "/components/utils/car-1.jpg",
-   "/components/utils/car-2.jpg",
-   "/components/utils/car-3.jpg",
-   "/components/utils/car-4.jpg",
-   "/components/utils/car-5.jpg",
-   "/components/utils/car-6.jpg",
-   "/components/utils/car-7.jpg",
-   "/components/utils/car-8.jpg",
-   "/components/utils/car-9.jpg",
-   "/components/utils/car-10.jpg",
-   "/components/utils/car-11.jpg",
-   "/components/utils/car-12.jpg",
-   "/components/utils/car-13.jpg",
-   "/components/utils/car-14.jpg",
+   "/e-commerce_project/components/utils/car-1.jpg",
+   "/e-commerce_project/components/utils/car-2.jpg",
+   "/e-commerce_project/components/utils/car-3.jpg",
+   "/e-commerce_project/components/utils/car-4.jpg",
+   "/e-commerce_project/components/utils/car-5.jpg",
+   "/e-commerce_project/components/utils/car-6.jpg",
+   "/e-commerce_project/components/utils/car-7.jpg",
+   "/e-commerce_project/components/utils/car-8.jpg",
+   "/e-commerce_project/components/utils/car-9.jpg",
+   "/e-commerce_project/components/utils/car-10.jpg",
+   "/e-commerce_project/components/utils/car-11.jpg",
+   "/e-commerce_project/components/utils/car-12.jpg",
+   "/e-commerce_project/components/utils/car-13.jpg",
+   "/e-commerce_project/components/utils/car-14.jpg",
 ]
 
    modelList.map((model, index) => {
