@@ -25,6 +25,7 @@ function Listin({index}) {
    }
 
    useEffect(() => {
+      Cars()
       const fetchData = async () => {
          let response = localStorage.getItem('cars')
          if (response)
