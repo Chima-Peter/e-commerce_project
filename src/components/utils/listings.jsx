@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
-import base64 from 'base-64'
-import {Cars} from './cars'
-import { MdArrowOutward } from "react-icons/md";
+import {DecodeCars, EncodeCars} from './cars'
 import ListinBox from "./listinBox"
 
 function Listin({index}) {
@@ -25,13 +22,9 @@ function Listin({index}) {
    }
 
    useEffect(() => {
-      Cars()
       const fetchData = async () => {
-         let response = localStorage.getItem('cars')
-         if (response)
-            {
-               response = base64.decode(response)
-               response = JSON.parse(response)
+         let response = DecodeCars()
+         if (response) {
                const tempStock = []
                const tempUsed = []
                const tempNew = []

@@ -79,7 +79,7 @@ function numberWithCommas(x) {
 }
 
  
- export function Cars () {
+ function EncodeCars () {
    const additionalCars = [];
    for (let i = 0; i < 100; i++) {
    additionalCars.push(generateRandomCar());
@@ -88,5 +88,15 @@ function numberWithCommas(x) {
    localStorage.setItem('cars', base64.encode(response))
 
  }
+
+ function DecodeCars () {
+   let response = localStorage.getItem('cars')
+   if (response) {
+      response = base64.decode(response)
+      response = JSON.parse(response)
+      return response
+   }
+ }
+ export { EncodeCars, DecodeCars }
 
  
