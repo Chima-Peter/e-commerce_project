@@ -1,14 +1,16 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from 'react-responsive-carousel'
-import DesktopBar from '../utils/desktopBar'
+import { HomeDesktopBar } from '../utils/desktopBar'
 import Search from '../utils/search'
 import MediaQuery from 'react-responsive'
 import { MdArrowOutward } from "react-icons/md";
 import { Link } from "react-router-dom"
+import Box from "../utils/box"
 import CarBrands from "../utils/carbrands"
 import CarTypes from "../utils/cartypes"
 import { useRef, useEffect, useState } from "react"
 import Listin from "../utils/listings"
+import DesktopFooter from "../utils/desktopFooter"
 
 function Home() {
    const slides = [
@@ -55,9 +57,9 @@ function Home() {
 
   return (
    <main className='overflow-hidden flex flex-col font-main gap-14' onScroll={addBorder}>
-      <DesktopBar />
+      <HomeDesktopBar />
       <Carousel 
-         infiniteLoop useKeyboardArrows autoPlay stopOnHover={true} showIndicators={false} transitionTime={'1000'} showThumbs={false} showStatus={false} interval={'6000'}>
+         infiniteLoop useKeyboardArrows autoPlay stopOnHover={true} showIndicators={false} transitionTime={'1000'} showThumbs={false} showArrows={false} showStatus={false} interval={'6000'}>
          {
             slides.map((slide) => (
                <div 
@@ -70,51 +72,67 @@ function Home() {
       <div ref={containerRef} className="w-[100%] bg-[rgba(0,0,0,0.5)] absolute top-0">
 
       </div>
-      <div 
-         className='absolute top-[20%] lg:top-[15%] flex-col w-full flex box-border px-20 gap-4 items-start'>
+      <section 
+         className='absolute top-[8%] md:top-[15%] flex-col w-full flex box-border lg:px-12 md:px-8 px-4 gap-4 items-start'>
          <h1  
-            className='text-white text-5xl font-bold'>
+            className='text-white text-3xl md:text-5xl font-bold'>
             Let&rsquo;s Find Your Perfect Car<small className='text-[14px]'>...</small>
          </h1>
          <MediaQuery minWidth={'1200px'}>
             <Search />
          </MediaQuery>
-      </div>
-      <div className="flex flex-col gap-5 mr-5 ml-20">
+      </section>
+      <section className="flex flex-col gap-5 ml-4 md:ml-8 lg:ml-12">
          <div className="w-full flex items-center justify-between">
             <h3 className="text-blue-950 font-bold text-xl">
                Browse by Category
             </h3>
-            <Link className="text-xs mr-10 text-blue-950 font-bold flex items-center">
+            <Link to={'/cartypes'} className="text-xs mr-5 md:mr-8 lg:mr-10 text-blue-950 font-bold flex items-center">
                <span className="pr-1">
                   View all
                </span>
                <MdArrowOutward />
             </Link>
          </div>
-         <CarTypes index={'12'} />
-      </div>
-      <div className="flex flex-col gap-5 mr-5 ml-20">
+         <MediaQuery minWidth={'1200px'}>
+            <CarTypes index={'12'} overflow={true} />
+         </MediaQuery>
+         <MediaQuery minWidth={'801px'} maxWidth={'1199px'}>
+            <CarTypes index={'10'} overflow={true} />
+         </MediaQuery>
+         <MediaQuery maxWidth={'800px'}>
+            <CarTypes index={'7'} overflow={true} />
+         </MediaQuery>
+      </section>
+      <section className="flex flex-col gap-5 ml-4 md:ml-8 lg:ml-12">
          <div className="w-full flex items-center justify-between">
-            <h3 className="text-blue-950 font-bold text-xl">
+            <h3 className="text-blue-950 font-bold text-md lg:text-xl">
                Explore Our Premium Brands
             </h3>
-            <Link className="text-xs mr-10 text-blue-950 font-bold flex items-center">
+            <Link  to={'/carbrands'} className="text-xs mr-5 md:mr-8 lg:mr-10 text-blue-950 font-bold flex items-center">
                <span className="pr-1">
                   View all
                </span>
                <MdArrowOutward />
             </Link>
          </div>
-         <CarBrands index={'12'} />
-      </div>
-      <div 
-         className="flex flex-col gap-4 py-10 pr-5 pl-20 bg-gray-200">
+         <MediaQuery minWidth={'1200px'}>
+            <CarBrands index={'12'} overflow={true} />
+         </MediaQuery>
+         <MediaQuery minWidth={'801px'} maxWidth={'1199px'}>
+            <CarBrands index={'10'} overflow={true} />
+         </MediaQuery>
+         <MediaQuery maxWidth={'800px'}>
+            <CarBrands index={'7'} overflow={true} />
+         </MediaQuery>
+      </section>
+      <section 
+         className="flex flex-col gap-4 py-10 pl-4 md:pl-8 lg:pl-12">
          <div className="w-full flex items-center justify-between">
             <h3 className="text-blue-950 font-bold text-xl">
                Featured Listings
             </h3>
-            <Link className="text-xs mr-10 text-blue-950 font-bold flex items-center">
+            <Link className="text-xs mr-5 md:mr-8 lg:mr-10 text-blue-950 font-bold flex items-center">
                <span className="pr-1">
                   View all
                </span>
@@ -123,7 +141,12 @@ function Home() {
          </div>
          <Listin index={'12'}/> 
          {/* <CarBrands index={'12'} />   */}
-      </div>
+      </section>
+      <section className="flex flex-col gap-8 py-10 pr-5 md:pl-8 pl-4 lg:pl-12 bg-gray-200 justify-center items-center">
+         <h3 className="text-xl text-blue-950 font-bold">Why Choose Us</h3>
+         <Box />
+      </section>
+      <DesktopFooter />
    </main>
   )
 }

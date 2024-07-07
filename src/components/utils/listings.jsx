@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import base64 from 'base-64'
 import {Cars} from './cars'
+import { LazyLoadImage } from 'react-lazyload'
 import { MdArrowOutward } from "react-icons/md";
 
 function Listin({index}) {
@@ -76,10 +77,10 @@ function Listin({index}) {
             Used Cars
          </button>
       </div>
-      <div  className="flex gap-5 w-[100%] overflow-x-auto customScroll">
+      <div  className="flex gap-5 w-[98%] overflow-x-auto customScroll">
          {
             (show && activeBtn.val1) && inStockCars.map((car, index) => (
-               <div key={`${car}-${index}`}>
+               <div key={`${car}-${index}`} className="cursor-pointer hover:bg-black hover:bg-clip-padding">
                   <img src={car['carImage']} alt="" className="md:min-w-[300px] md:h-[150px] rounded-t-lg" />
                   <div className="flex flex-col gap-2 bg-white p-4 rounded-b-lg">
                      <h5 className="text-blue-950 text-xs font-bold font-price">
@@ -108,7 +109,7 @@ function Listin({index}) {
          }
          {
             (show && activeBtn.val2) && newCars.map((car, index) => (
-               <div key={`${car}-${index}`}>
+               <div key={`${car}-${index}`} className="cursor-pointer hover:bg-black hover:bg-clip-padding">
                   <img src={car['carImage']} alt="" className="md:min-w-[300px] md:h-[150px] rounded-t-lg" />
                   <div className="flex flex-col gap-2 bg-white p-4 rounded-b-lg">
                      <h5 className="text-blue-950 text-xs font-bold font-price">
@@ -137,7 +138,7 @@ function Listin({index}) {
          }
          {
             (show && activeBtn.val3) && usedCars.map((car, index) => (
-               <div key={`${car}-${index}`}>
+               <div key={`${car}-${index}`} className="cursor-pointer hover:bg-black hover:bg-clip-padding">
                   <img src={car['carImage']} alt="" className="md:min-w-[300px] md:h-[150px] rounded-t-lg" />
                   <div className="flex flex-col gap-2 bg-white p-4 rounded-b-lg">
                      <h5 className="text-blue-950 text-xs font-bold font-price">

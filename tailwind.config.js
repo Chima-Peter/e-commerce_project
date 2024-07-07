@@ -5,6 +5,10 @@ export default {
      "./src/**/*.{js,ts,jsx,tsx}",
    ],
    theme: {
+      screens: {
+         sm: '680px',
+         md: '681px'
+      },
      extend: {
       fontFamily:{
          'main': 'Raleway',
@@ -15,7 +19,7 @@ export default {
          'img3': "url('/components/pages/w15.jpg')",
          'img2': "url('/components/pages/w16.jpg')",
          'img4': "url('/components/pages/w17.jpg')"
-      }
+      },
      },
    },
    plugins: [],
