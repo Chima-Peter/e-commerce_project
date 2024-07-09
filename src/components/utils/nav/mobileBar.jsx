@@ -7,6 +7,7 @@ import { MdCancelPresentation } from "react-icons/md";
 
 function MobileBar() {
    const [icon, setIcon] = useState(true)
+   const [animateState, setAnimateState] = useState()
 
    const handleIcon = () => {
       setIcon(!icon)
@@ -21,26 +22,25 @@ function MobileBar() {
    }, []);
    const slideVariants = {
       initial: {
-         y: '-10%'
+         y: '-10%',
+         opacity: 0
       },
       animate: {
-         y: 0
-      },
-      exit: {
-         x: '10%'
+         y: 0,
+         opacity: 1
       }
    }
    return (
-      <nav className={`flex flex-col text-white w-full gap-4 fixed z-10 border-b border-b-white  ${isScrolled ? 'bg-black shadow-xl' : ''} ${!icon ? 'bg-black h-[100%]' : ''}`}>
+      <nav className={`flex flex-col text-white w-full gap-4 fixed z-10 border-b border-b-white  ${isScrolled ? 'bg-black shadow-xl' : ''} ${!icon ? 'bg-black h-[100%] border-b-0' : ''}`}>
          <div className="flex w-full justify-between items-center py-2 md:py-5 px-4 md:px-8 lg:px-12">
             <h1 className={`font-semibold text-xl`}>
                MACELO AUTO<small className='text-xs'>s</small>
             </h1>
                {
-                  icon && <GiHamburgerMenu className="w-5 h-5" onClick={handleIcon} />
+                  icon && <GiHamburgerMenu className="w-7 h-7" onClick={handleIcon} />
                }
                {
-                  !icon && <MdCancelPresentation className="w-5 h-5" onClick={handleIcon} />
+                  !icon && <MdCancelPresentation className="w-7 h-7" onClick={handleIcon} />
                }
          </div>
          {   
@@ -50,10 +50,9 @@ function MobileBar() {
                   variants={slideVariants}
                   initial='initial'
                   animate='animate'
-                  exit='exit'
                   transition= {{
                         ease: 'linear',
-                        duration: 0.2
+                        duration: 0.3
                   }}>
                   <li className={`hover:text-blue-500 text-xs font-semibold  ${isScrolled ? 'hover:text-white text-white' : ''}`}>
                      <Link>Inventory</Link>
