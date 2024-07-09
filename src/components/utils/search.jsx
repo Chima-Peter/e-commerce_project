@@ -8,7 +8,7 @@ function Search() {
       make: '',
       model: '',
       minPrice: '0',
-      maxPrice: '250000',
+      maxPrice: '1000000',
       condition: toggle
    })
    const [carModel, setCarModel] = useState()

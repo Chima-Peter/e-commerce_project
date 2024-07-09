@@ -14,10 +14,10 @@ import DesktopFooter from "../utils/nav/desktopFooter"
 
 function Home() {
    const slides = [
-      {image: `/e-commerce_project/components/pages/w14.jpg`},
-      {image: "/e-commerce_project/components/pages/w15.jpg"},
-      {image: "/e-commerce_project/components/pages/w16.jpg"},
-      {image: "/e-commerce_project/components/pages/w17.jpg"},
+      {image: `/components/pages/w14.jpg`},
+      {image: "/components/pages/w15.jpg"},
+      {image: "/components/pages/w16.jpg"},
+      {image: "/components/pages/w17.jpg"},
    ]
    const imageRef = useRef(null);
    const containerRef = useRef(null);

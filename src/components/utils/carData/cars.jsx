@@ -35,20 +35,20 @@ function generateRandomCar() {
    ];  
 
 const carImages = [
-   "/e-commerce_project/components/utils/car-1.jpg",
-   "/e-commerce_project/components/utils/car-2.jpg",
-   "/e-commerce_project/components/utils/car-3.jpg",
-   "/e-commerce_project/components/utils/car-4.jpg",
-   "/e-commerce_project/components/utils/car-5.jpg",
-   "/e-commerce_project/components/utils/car-6.jpg",
-   "/e-commerce_project/components/utils/car-7.jpg",
-   "/e-commerce_project/components/utils/car-8.jpg",
-   "/e-commerce_project/components/utils/car-9.jpg",
-   "/e-commerce_project/components/utils/car-10.jpg",
-   "/e-commerce_project/components/utils/car-11.jpg",
-   "/e-commerce_project/components/utils/car-12.jpg",
-   "/e-commerce_project/components/utils/car-13.jpg",
-   "/e-commerce_project/components/utils/car-14.jpg",
+   "/components/utils/car-1.jpg",
+   "/components/utils/car-2.jpg",
+   "/components/utils/car-3.jpg",
+   "/components/utils/car-4.jpg",
+   "/components/utils/car-5.jpg",
+   "/components/utils/car-6.jpg",
+   "/components/utils/car-7.jpg",
+   "/components/utils/car-8.jpg",
+   "/components/utils/car-9.jpg",
+   "/components/utils/car-10.jpg",
+   "/components/utils/car-11.jpg",
+   "/components/utils/car-12.jpg",
+   "/components/utils/car-13.jpg",
+   "/components/utils/car-14.jpg",
 ]
 
    modelList.map((model, index) => {
@@ -89,13 +89,15 @@ function numberWithCommas(x) {
 
  
  function EncodeCars () {
-   const additionalCars = [];
-   for (let i = 0; i < 100; i++) {
-   additionalCars.push(generateRandomCar());
+   const check = localStorage.getItem('cars')
+   if (!check) {
+      const additionalCars = [];
+      for (let i = 0; i < 100; i++) {
+      additionalCars.push(generateRandomCar());
+      }
+      const response = JSON.stringify(additionalCars)
+      localStorage.setItem('cars', base64.encode(response))
    }
-   const response = JSON.stringify(additionalCars)
-   localStorage.setItem('cars', base64.encode(response))
-
  }
 
  function DecodeCars () {
@@ -106,6 +108,6 @@ function numberWithCommas(x) {
       return response
    }
  }
- export { EncodeCars, DecodeCars }
+ export { EncodeCars, DecodeCars, numberWithCommas }
 
  

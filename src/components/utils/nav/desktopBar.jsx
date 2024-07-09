@@ -17,7 +17,7 @@ function HomeDesktopBar() {
   return (
    <nav className={`flex justify-between text-white items-center w-full fixed py-2 md:py-5 z-10 border-b border-b-white px-4 md:px-8 lg:px-12 ${isScrolled ? 'bg-white text-blue-950 shadow-xl' : ''}`}>
       <h1 className={`font-semibold text-xl ${isScrolled ? 'text-blue-950' : ''}`}>
-         MACELO AUTO<small className='text-xs'> s</small>
+         MACELO AUTO<small className='text-xs'>s</small>
       </h1>
       <MediaQuery minWidth={'1200px'} >
          <ul className='text-md font-medium flex gap-5 items-center'>
