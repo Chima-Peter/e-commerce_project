@@ -11,6 +11,7 @@ import CarTypes from "../utils/display/cartypes"
 import { useRef, useEffect, useState } from "react"
 import Listin from "../utils/display/listings"
 import DesktopFooter from "../utils/nav/desktopFooter"
+import MobileBar from "../utils/nav/mobileBar"
 
 function Home() {
    const slides = [
@@ -57,7 +58,12 @@ function Home() {
 
   return (
    <main className='overflow-hidden flex flex-col font-main gap-14' onScroll={addBorder}>
-      <HomeDesktopBar />
+      <MediaQuery minWidth={'801px'}>
+         <HomeDesktopBar />
+      </MediaQuery>
+      <MediaQuery maxWidth={'800px'}>
+         <MobileBar />
+      </MediaQuery>
       <Carousel 
          infiniteLoop useKeyboardArrows autoPlay stopOnHover={true} showIndicators={false} transitionTime={'1000'} showThumbs={false} showArrows={false} showStatus={false} interval={'6000'}>
          {

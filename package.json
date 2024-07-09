@@ -14,6 +14,7 @@
     "@mdi/react": "^1.6.1",
     "base-64": "^1.0.0",
     "formik": "^2.4.6",
+    "framer-motion": "^11.2.14",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",

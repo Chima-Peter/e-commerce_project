@@ -9,9 +9,7 @@ function HomeDesktopBar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0)
     };
-
     window.addEventListener('scroll', handleScroll);
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   return (
@@ -19,7 +17,6 @@ function HomeDesktopBar() {
       <h1 className={`font-semibold text-xl ${isScrolled ? 'text-blue-950' : ''}`}>
          MACELO AUTO<small className='text-xs'>s</small>
       </h1>
-      <MediaQuery minWidth={'1200px'} >
          <ul className='text-md font-medium flex gap-5 items-center'>
             <li className={`hover:text-blue-500 text-sm font-semibold  ${isScrolled ? 'hover:text-white text-blue-950' : ''}`}>
                <Link>Inventory</Link>
@@ -32,11 +29,10 @@ function HomeDesktopBar() {
             </li>
             <li className={`hover:text-blue-500 text-sm font-semibold  ${isScrolled ? 'hover:text-white text-blue-950' : ''}`}>
                <Link>
-                  <FaSearch className='w-4 h-4' />
+                  Find a Car
                </Link>
             </li>
          </ul>
-      </MediaQuery>
    </nav>
   )
 }
