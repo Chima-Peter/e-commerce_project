@@ -12,6 +12,7 @@ import { useRef, useEffect, useState } from "react"
 import Listin from "../utils/display/listings"
 import DesktopFooter from "../utils/nav/desktopFooter"
 import MobileBar from "../utils/nav/mobileBar"
+import LazyLoad from "react-lazyload"
 
 function Home() {
    const slides = [
@@ -70,7 +71,9 @@ function Home() {
             slides.map((slide) => (
                <div 
                   className='relative ' key={slide.image}>
-                  <img ref={imageRef} src={slide.image} />                    
+                  <LazyLoad>
+                     <img ref={imageRef} src={slide.image} />
+                  </LazyLoad>
                </div>               
             ))
          }

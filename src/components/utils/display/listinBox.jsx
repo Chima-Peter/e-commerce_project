@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom"
 import { MdArrowOutward } from "react-icons/md";
 import { numberWithCommas } from "../carData/cars";
+import LazyLoad from "react-lazyload";
 
 function ListinBox({car, index, show}) {
   return (
    <>
-      <img src={car['carImage']} alt="" className={`rounded-t-lg bg-contain ${!show ? 'w-[150px] h-[100px] md:w-[180px]' : 'min-w-[250px] h-[100px] md:min-w-[300px] md:h-[150px]'}`} />
+      <LazyLoad>
+         <img src={car['carImage']} alt="" className={`rounded-t-lg bg-contain ${!show ? 'w-[150px] h-[100px] md:w-[180px]' : 'min-w-[250px] h-[100px] md:min-w-[300px] md:h-[150px]'}`} />
+      </LazyLoad>
       <div className="flex flex-col gap-2 bg-white p-4 rounded-b-lg">
          <h5 className="text-blue-950 text-xs font-bold font-price">
             {car.condition} {car.carData} {car.sortedCarModels[car.carData]}
