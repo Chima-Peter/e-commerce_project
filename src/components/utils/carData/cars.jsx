@@ -12,6 +12,22 @@ function generateRandomCar() {
      "A powerful and capable SUV for adventures on and off the road.",
      "A fuel-efficient and practical car for city commutes.",
    ];
+   const carCategories = [
+      "Sedan",
+      "Coupe",
+      "SUV",
+      "Wagon",
+      "Hatchback",
+      "Convertible",
+      "Truck",
+      "Minivan",
+      "Muscle Car",
+      "Sports Car",
+      "Luxury Car",
+      "Electric Car",
+      "Hybrid Car",
+      "Off-road Vehicle",
+    ];
    let carLists = [
       "Tesla", "Toyota", "Jeep", "Ford", "Chevrolet", "Ram", "Hyundai", "Kia", "BMW", "Mercedes-Benz", "Audi", "Subaru" , "Volkswagen", "Mazda"
    ];
@@ -66,6 +82,7 @@ const carImages = [
    const transmission = transmissions[Math.floor(Math.random() * transmissions.length)];
    const description = descriptions[Math.floor(Math.random() * descriptions.length)];
    const carImage = carImages[Math.floor(Math.random() * carImages.length)]
+   const carCategory = carCategories[Math.floor(Math.random() * carCategories.length)]
    const carData = carLists[Math.floor(Math.random() * carLists.length)]
  
    return {
@@ -79,7 +96,8 @@ const carImages = [
       carImage,
       carStock,
       carData,
-      description
+      description,
+      carCategory
    };
  }
 

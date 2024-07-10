@@ -2,7 +2,7 @@ import { DecodeCars } from "../../utils/carData/cars"
 import { useState, useEffect } from "react"
 import ListinBox from "../../utils/display/listinBox"
 
-function BrandSearch({overflow=false}) {
+function TypeSearch({overflow=false}) {
    const [show, setShow] = useState(false)
    const [activeBtn, setActiveBtn] = useState(
       {
@@ -26,14 +26,14 @@ function BrandSearch({overflow=false}) {
    useEffect(() => {
       const fetchData = async () => {
          let response = DecodeCars()
-         let searchBrand = JSON.parse(localStorage.getItem('searchBrand'))
-         if (response && searchBrand) {
+         let searchType = JSON.parse(localStorage.getItem('searchType'))
+         if (response && searchType) {
                const tempStock = []
                const tempUsed = []
                const tempNew = []
                const tempSold = []
                response.forEach((car) => {
-                  if (searchBrand == car.carData)
+                  if (searchType == car.carCategory)
                      {
                         if (car.carStock == 'yes')
                            tempStock.push(car)
@@ -143,4 +143,4 @@ function BrandSearch({overflow=false}) {
   )
 }
 
-export default BrandSearch
+export default TypeSearch

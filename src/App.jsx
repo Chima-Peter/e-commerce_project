@@ -7,6 +7,7 @@ import AllListings from "./components/pages/listings/all_listings"
 import FindaCar from "./components/pages/search/find"
 import SearchResult from "./components/pages/search/search_result"
 import Brand from "./components/pages/brands/brand_result"
+import Type from "./components/pages/types/type_result"
 
 function App() {
    return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="find" element={<FindaCar />} />
             <Route path="search_result" element={<SearchResult />} />
             <Route path="brands" element={<Brand />} />
+            <Route path="types" element={<Type />} />
          </Routes>
       </BrowserRouter>
    )
