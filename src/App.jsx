@@ -3,6 +3,8 @@ import ErrorPage from "./components/pages/errorpage"
 import Home from "./components/pages/home"
 import AllTypes from "./components/pages/types/alltypes"
 import AllBrands from "./components/pages/brands/allbrands"
+import AllListings from "./components/pages/listings/all_listings"
+import FindaCar from "./components/pages/search/find"
 
 function App() {
    return (
@@ -14,6 +16,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="cartypes" element={<AllTypes />} />
             <Route path="carbrands" element={<AllBrands />} />
+            <Route path="featured" element={<AllListings />} />
+            <Route path="find" element={<FindaCar />} />
          </Routes>
       </BrowserRouter>
    )

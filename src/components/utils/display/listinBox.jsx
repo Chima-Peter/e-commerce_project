@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom"
 import { MdArrowOutward } from "react-icons/md";
 
-function ListinBox({car, index}) {
+function ListinBox({car, index, show}) {
   return (
-   <div key={`${car}-${index}`} className="cursor-pointer hover:bg-black hover:bg-clip-padding shadow-lg rounded-lg">
-      <img src={car['carImage']} alt="" className="min-w-[250px] h-[100px] md:min-w-[300px] md:h-[150px] rounded-t-lg" />
+   <>
+      <img src={car['carImage']} alt="" className={`rounded-t-lg bg-contain ${!show ? 'w-[150px] h-[100px] md:w-[180px]' : 'min-w-[250px] h-[100px] md:min-w-[300px] md:h-[150px]'}`} />
       <div className="flex flex-col gap-2 bg-white p-4 rounded-b-lg">
          <h5 className="text-blue-950 text-xs font-bold font-price">
             {car.condition} {car.carData} {car.sortedCarModels[car.carData]}
@@ -27,7 +27,7 @@ function ListinBox({car, index}) {
             <MdArrowOutward />
          </Link>
       </div>
-   </div>
+   </>
   )
 }
 

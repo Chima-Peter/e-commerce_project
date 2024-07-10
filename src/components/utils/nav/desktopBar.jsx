@@ -1,14 +1,13 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import MediaQuery from 'react-responsive';
-import { FaSearch } from "react-icons/fa";
 
 function HomeDesktopBar() {
    const [isScrolled, setIsScrolled] = useState(false)
    useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0)
-    };
+      }
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -18,19 +17,21 @@ function HomeDesktopBar() {
          MACELO AUTO<small className='text-xs'>s</small>
       </h1>
          <ul className='text-md font-medium flex gap-5 items-center'>
-            <li className={`hover:text-blue-500 text-sm font-semibold  ${isScrolled ? 'hover:text-white text-blue-950' : ''}`}>
-               <Link>Inventory</Link>
+            <li className={`hover:text-blue-500 text-xs font-semibold  ${isScrolled ? 'hover:text-blue-600 text-blue-950' : ''}`}>
+               <Link to={'/featured'}>Inventory</Link>
             </li>
-            <li className={`hover:text-blue-500 text-sm font-semibold  ${isScrolled ? 'hover:text-white text-blue-950' : ''}`}>
-               <Link>About Us</Link>
-            </li>
-            <li className={`hover:text-blue-500  text-sm font-semibold  ${isScrolled ? 'hover:text-white text-blue-950' : ''}`}>
-               <Link>Contact Us</Link>
-            </li>
-            <li className={`hover:text-blue-500 text-sm font-semibold  ${isScrolled ? 'hover:text-white text-blue-950' : ''}`}>
-               <Link>
+            <li className={`hover:text-blue-500 text-xs font-semibold  ${isScrolled ? 'hover:text-blue-600 text-blue-950' : ''}`}>
+               <Link to={'/find'}>
                   Find a Car
                </Link>
+            </li>
+            <li className={`hover:text-blue-500 text-xs font-semibold  ${isScrolled ? 'hover:text-blue-600 text-blue-950' : ''}`}>
+               <Link>
+                  Shopping Cart
+               </Link>
+            </li>
+            <li className={`hover:text-blue-500  text-xs font-semibold  ${isScrolled ? 'hover:text-blue-600 text-blue-950' : ''}`}>
+               <Link>Contact Us</Link>
             </li>
          </ul>
    </nav>
@@ -60,19 +61,21 @@ function DesktopBar() {
       </h1>
       <MediaQuery minWidth={'767px'} >
          <ul className='text-md font-medium flex gap-5 items-center'>
-            <li className={`hover:text-blue-500 text-sm font-semibold  ${isScrolled ? 'hover:text-white text-blue-950' : ''}`}>
-               <Link>Inventory</Link>
+            <li className={`hover:text-blue-500 text-xs font-semibold  ${isScrolled ? 'hover:text-blue-600 text-blue-950' : ''}`}>
+               <Link to={'/featured'}>Inventory</Link>
             </li>
-            <li className={`hover:text-blue-500 text-sm font-semibold  ${isScrolled ? 'hover:text-white text-blue-950' : ''}`}>
-               <Link>About Us</Link>
-            </li>
-            <li className={`hover:text-blue-500  text-sm font-semibold  ${isScrolled ? 'hover:text-white text-blue-950' : ''}`}>
-               <Link>Contact Us</Link>
-            </li>
-            <li className={`hover:text-blue-500 text-sm font-semibold  ${isScrolled ? 'hover:text-white text-blue-950' : ''}`}>
-               <Link>
-                  <FaSearch className='w-4 h-4' />
+            <li className={`hover:text-blue-500 text-sm font-semibold  ${isScrolled ? 'hover:text-blue-600 text-blue-950' : ''}`}>
+               <Link to={'/find'}>
+                  Find a Car
                </Link>
+            </li>
+            <li className={`hover:text-blue-500 text-xs font-semibold  ${isScrolled ? 'hover:text-blue-600 text-blue-950' : ''}`}>
+               <Link>
+                  Shopping Cart
+               </Link>
+            </li>
+            <li className={`hover:text-blue-500  text-xs font-semibold  ${isScrolled ? 'hover:text-blue-600 text-blue-950' : ''}`}>
+               <Link>Contact Us</Link>
             </li>
          </ul>
       </MediaQuery>

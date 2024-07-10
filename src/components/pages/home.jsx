@@ -57,12 +57,12 @@ function Home() {
 
 
   return (
-   <main className='overflow-hidden flex flex-col font-main gap-14' onScroll={addBorder}>
+   <main className='overflow-hidden flex flex-col font-main gap-6 md:md-10 lg:gap-14' onScroll={addBorder}>
       <MediaQuery minWidth={'801px'}>
          <HomeDesktopBar />
       </MediaQuery>
       <MediaQuery maxWidth={'800px'}>
-         <MobileBar />
+         <MobileBar home={true}/>
       </MediaQuery>
       <Carousel 
          infiniteLoop useKeyboardArrows autoPlay stopOnHover={true} showIndicators={false} transitionTime={'1000'} showThumbs={false} showArrows={false} showStatus={false} interval={'6000'}>
@@ -138,15 +138,19 @@ function Home() {
             <h3 className="text-blue-950 font-bold text-xl">
                Featured Listings
             </h3>
-            <Link className="text-xs mr-5 md:mr-8 lg:mr-10 text-blue-950 font-bold flex items-center">
+            <Link to={'/featured'} className="text-xs mr-5 md:mr-8 lg:mr-10 text-blue-950 font-bold flex items-center">
                <span className="pr-1">
                   View all
                </span>
                <MdArrowOutward />
             </Link>
          </div>
-         <Listin index={'12'}/> 
-         {/* <CarBrands index={'12'} />   */}
+         <MediaQuery minWidth={'801px'}>
+            <Listin index={'12'} overflow={true}/> 
+         </MediaQuery>
+         <MediaQuery maxWidth={'801px'}>
+            <Listin overflow={true}/> 
+         </MediaQuery>
       </section>
       <section className="flex flex-col gap-8 py-10 pr-5 md:pl-8 pl-4 lg:pl-12 bg-gray-200 justify-center items-center">
          <h3 className="text-xl text-blue-950 font-bold">Why Choose Us</h3>

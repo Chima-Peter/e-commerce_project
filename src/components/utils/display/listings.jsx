@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import {DecodeCars, EncodeCars} from '../carData/cars'
 import ListinBox from "./listinBox"
+import { Link } from "react-router-dom"
 
-function Listin({index}) {
+function Listin({index, overflow=false}) {
    const [show, setShow] = useState(false)
    const [activeBtn, setActiveBtn] = useState(
       {
@@ -53,7 +54,7 @@ function Listin({index}) {
       fetchData()
    }, [])
   return (
-    <div className="flex flex-col gap-4">
+    <div className={`flex flex-col gap-4 ${overflow ? '' : 'ml-4 md:ml-8 lg:ml-14'}`}>
       <div className="flex gap-3">
          <button 
             className={`text-blue-950 pb-1 text-xs font-extrabold ${activeBtn.val1 ? 'border-b-2 border-b-blue-950 rounded-sm' : ''}`} 
@@ -71,25 +72,25 @@ function Listin({index}) {
             Used Cars
          </button>
       </div>
-      <div  className="flex gap-5 w-[98%] pb-4 overflow-x-auto customScroll">
+      <div  className={`flex ${ overflow ? 'w-[98%] pb-4 overflow-x-auto customScroll gap-5' : 'overflow-hidden justify-evenly items-start flex-wrap gap-x-3 gap-y-5'}`}>
          {
             (show && activeBtn.val1) && inStockCars.map((car, index) => (
-               <div key={`${car}-${index}`} className="cursor-pointer hover:bg-black hover:bg-clip-padding shadow-lg rounded-lg">
-                  <ListinBox car={car} index={index} />
+               <div key={`${car}-${index}`} className="cursor-pointer w-fit shadow-lg rounded-lg">
+                  <ListinBox show={overflow} car={car} index={index} />
                </div>
             ))
          }
          {
             (show && activeBtn.val2) && newCars.map((car, index) => (
-               <div key={`${car}-${index}`} className="cursor-pointer hover:bg-black hover:bg-clip-padding shadow-lg rounded-lg">
-                  <ListinBox car={car} index={index} />
+               <div key={`${car}-${index}`} className="cursor-pointer w-fit shadow-lg rounded-lg">
+                  <ListinBox show={overflow} car={car} index={index} />
                </div>
             ))
          }
          {
             (show && activeBtn.val3) && usedCars.map((car, index) => (
-               <div key={`${car}-${index}`} className="cursor-pointer hover:bg-black hover:bg-clip-padding shadow-lg rounded-lg">
-                  <ListinBox car={car} index={index} />
+               <div key={`${car}-${index}`} className="cursor-pointer w-fit shadow-lg rounded-lg">
+                  <ListinBox show={overflow} car={car} index={index} />
                </div>
             ))
          }

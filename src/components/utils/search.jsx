@@ -52,11 +52,11 @@ function Search() {
          className='flex gap-0 border rounded-lg border-blue-600'>
          <button  
             className={`rounded-l-lg ${toggle ? 'text-white bg-blue-600' : 'bg-white text-blue-600'} border-0 py-1.5 focus:border-0 font-medium text-xs w-[150px]`} type="button" onClick={changeToggle}>
-            New   
+            New Car  
          </button>
          <button 
             className={` font-medium  rounded-r-lg border-0 py-1.5 focus:border-0 w-[150px] text-xs ${!toggle ? 'text-white bg-blue-600' : 'bg-white text-blue-600'}`} type="button" onClick={changeToggle}>
-            Used
+            Used Car
          </button>
       </div>
       <div 
