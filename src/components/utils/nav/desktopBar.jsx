@@ -13,9 +13,9 @@ function HomeDesktopBar() {
   }, []);
   return (
    <nav className={`flex justify-between text-white items-center w-full fixed py-2 md:py-5 z-10 border-b border-b-white px-4 md:px-8 lg:px-12 ${isScrolled ? 'bg-white text-blue-950 shadow-xl' : ''}`}>
-      <h1 className={`font-semibold text-xl ${isScrolled ? 'text-blue-950' : ''}`}>
+      <Link to={'/'} className={`font-semibold text-xl ${isScrolled ? 'text-blue-950' : ''}`}>
          MACELO AUTO<small className='text-xs'>s</small>
-      </h1>
+      </Link>
          <ul className='text-md font-medium flex gap-5 items-center'>
             <li className={`hover:text-blue-500 text-xs font-semibold  ${isScrolled ? 'hover:text-blue-600 text-blue-950' : ''}`}>
                <Link to={'/featured'}>Inventory</Link>
@@ -61,9 +61,9 @@ function DesktopBar() {
 
   return (
    <nav className={`flex justify-between items-center w-full fixed py-5 z-10 text-blue-950  border-b border-b-blue-950 px-4 md:px-8 lg:px-12 ${isScrolled ? 'shadow-xl border-b-0 bg-white' : 'bg-blue-950 text-white'}`}>
-      <h1 className={`font-semibold text-xl ${isScrolled ? 'text-blue-950' : ''}`}>
+      <Link to={'/'} className={`font-semibold text-xl ${isScrolled ? 'text-blue-950' : ''}`}>
          MACELO AUTO<small className='text-xs'> s</small>
-      </h1>
+      </Link>
       <MediaQuery minWidth={'767px'} >
          <ul className='text-md font-medium flex gap-5 items-center'>
             <li className={`hover:text-blue-500 text-xs font-semibold  ${isScrolled ? 'hover:text-blue-600 text-blue-950' : ''}`}>

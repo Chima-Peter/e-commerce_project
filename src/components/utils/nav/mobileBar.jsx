@@ -34,9 +34,9 @@ function MobileBar({home=false}) {
    return (
       <nav className={`flex flex-col text-white  w-full gap-4 fixed z-10 border-b border-b-white  ${isScrolled ? 'bg-blue-950 shadow-xl' : ''} ${!icon ? 'bg-blue-950 h-[100%] border-b-0' : ''} ${home ? '' : 'bg-blue-950'}`}>
          <div className="flex w-full justify-between items-center py-2 md:py-5 px-4 md:px-8 lg:px-12">
-            <h1 className={`font-semibold text-xl`}>
+            <Link to={'/'} className={`font-semibold text-xl`}>
                MACELO AUTO<small className='text-xs'>s</small>
-            </h1>
+            </Link>
                {
                   icon && <GiHamburgerMenu className="w-7 h-7" onClick={handleIcon} />
                }
