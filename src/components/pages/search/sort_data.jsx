@@ -34,7 +34,7 @@ function SortData({overflow=false}) {
                const tempNew = []
                const tempSold = []
                response.forEach((car) => {
-                  if ((searchData.model == car.sortedCarModels[car.carData]) && (searchData.make == car.carData) && (Number(car.price) > Number(searchData.minPrice)) && (Number(car.price) < Number(searchData.maxPrice)))
+                  if ((searchData.model == car.sortedCarModels[car.carData]) && (searchData.make == car.carData))
                      {
                         if (car.carStock == 'yes')
                            tempStock.push(car)

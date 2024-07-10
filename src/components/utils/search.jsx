@@ -10,8 +10,8 @@ function Search() {
    const [searchData, setSearchData] = useState({
       make: 'Tesla',
       model: 'Model 3',
-      minPrice: '10000',
-      maxPrice: '1000000',
+      minPrice: '',
+      maxPrice: '',
       new: true,
       used: false
    })
@@ -136,7 +136,7 @@ function Search() {
          className='flex flex-col gap-1'>
          <p 
              className='px-2 text-[12px] font-semibold  text-blue-950'>
-            Set Price($)
+            Set Price(&#8358;)
          </p>
          <div className='px-3 flex py-2 items-start  rounded-md border border-gray-300 gap-1 justify-evenly'>
             <label
@@ -147,12 +147,10 @@ function Search() {
                   name="minPrice" 
                   id="minPrice" 
                   autoFocus
-                  min={'10000'}
-                  max={'99999'}
                   value={searchData.minPrice}
-                  placeholder='0'
+                  placeholder='2,000,000'
                   onChange={handleSearchData}
-                  className='font-price text-xs border border-gray-400 focus:border-blue-600 px-1 py-1 font-medium placeholder:text-gray-400 
+                  className='font-price text-xs border border-gray-400 focus:border-blue-600 px-1 py-1 font-medium placeholder:text-gray-600 
                   placeholder:text-xs placeholder:font-normal focus:border-2 focus:outline-none w-[100px] rounded-md' />
             </label>
             <label
@@ -161,13 +159,11 @@ function Search() {
                <input 
                   type="number" 
                   name="maxPrice" 
-                  min={'100000'}
-                  max={'1000000'}
                   id="maxPrice" 
                   value={searchData.maxPrice} 
+                  placeholder='10,000,000'
                   onChange={handleSearchData}
-                  placeholder='250000'
-                  className='font-price text-xs appearance-none border border-gray-400 focus:border-blue-600 px-1 py-1 font-medium placeholder:text-gray-400 placeholder:text-xs placeholder:font-normal focus:border-2 focus:outline-none w-[100px] rounded-md' />
+                  className='font-price text-xs appearance-none border border-gray-400 focus:border-blue-600 px-1 py-1 font-medium placeholder:text-gray-600 placeholder:text-xs placeholder:font-normal focus:border-2 focus:outline-none w-[100px] rounded-md' />
             </label>
          </div>
       </div>
