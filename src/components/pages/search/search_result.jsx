@@ -2,7 +2,7 @@ import MediaQuery from "react-responsive"
 import { DesktopBar } from "../../utils/nav/desktopBar"
 import DesktopFooter from "../../utils/nav/desktopFooter"
 import MobileBar from "../../utils/nav/mobileBar"
-import Listin from "../../utils/display/listings"
+import SortData from "./sort_data"
 
 function SearchResult() {
   return (
@@ -17,7 +17,7 @@ function SearchResult() {
       <h3 className="text-blue-950 font-bold mb-4 ml-4 md:ml-8 lg:ml-14 text-2xl mt-16 md:mt-24 lg:mt-28">
          Your Search Result...
       </h3>
-      <Listin />
+      <SortData />
    </div>
    <DesktopFooter />
    </main>

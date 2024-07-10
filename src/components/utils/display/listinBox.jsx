@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { MdArrowOutward } from "react-icons/md";
+import { numberWithCommas } from "../carData/cars";
 
 function ListinBox({car, index, show}) {
   return (
@@ -18,7 +19,7 @@ function ListinBox({car, index, show}) {
             </li>
          </ul>
          <h5 className="font-extrabold text-md font-price">
-            ${car.price}
+            {numberWithCommas(car.price)}
          </h5>
          <Link className="text-[10px] text-blue-600 font-bold flex items-center hover:text-blue-950">
             <span className="pr-1">

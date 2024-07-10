@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function DesktopFooter() {
   return (
-   <footer className=" overflow-hidden flex flex-col gap-5 px-14 items-center bg-blue-950 text-white font-price pt-10 justify-center">
+   <footer  className=" overflow-hidden flex flex-col gap-5 px-14 items-center bg-blue-950 text-white font-price pt-10 justify-center">
       <div className="flex gap-2 items-center">
          <div className="h-[2px] bg-white w-[50vw]"></div>
          <ul className="flex gap-3">

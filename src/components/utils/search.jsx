@@ -78,6 +78,7 @@ function Search() {
 
   return (
    <form 
+      noValidate
       onSubmit={handleSubmit} 
       className='flex w-[280px] flex-col gap-3  py-3 font-main px-5 border border-white rounded-lg bg-white shadow-lg shadow-blue-950'>
       <div 

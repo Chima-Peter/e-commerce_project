@@ -59,7 +59,7 @@ const carImages = [
    sortedCarModels[carLists[index]] = model[Math.floor(Math.random() * model.length)]
    })
 
-   const price = numberWithCommas((Math.floor(Math.random() * (500 - 15 + 1)) + 15) * 1000);
+   const price = (Math.floor(Math.random() * (500 - 15 + 1)) + 15) * 1000;
    const fuelType = fuelTypes[Math.floor(Math.random() * fuelTypes.length)];
    const carStock = carStocks[Math.floor(Math.random() * carStocks.length)];
    const condition = carCondition[Math.floor(Math.random() * carCondition.length)];

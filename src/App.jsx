@@ -6,6 +6,7 @@ import AllBrands from "./components/pages/brands/allbrands"
 import AllListings from "./components/pages/listings/all_listings"
 import FindaCar from "./components/pages/search/find"
 import SearchResult from "./components/pages/search/search_result"
+import DesktopFooter from "./components/utils/nav/desktopFooter"
 
 function App() {
    return (
