@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { EncodeCars, DecodeCars } from './carData/cars'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
@@ -47,7 +47,7 @@ function Search() {
          if (searchData.model != '' )
          {
             localStorage.setItem('searchData', JSON.stringify(searchData))
-            navigate('/')
+            navigate('/search_result')
          }
          else {
             setColo(true)

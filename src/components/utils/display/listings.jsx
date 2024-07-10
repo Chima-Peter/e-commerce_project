@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import {DecodeCars, EncodeCars} from '../carData/cars'
 import ListinBox from "./listinBox"
-import { Link } from "react-router-dom"
 
 function Listin({index, overflow=false}) {
    const [show, setShow] = useState(false)

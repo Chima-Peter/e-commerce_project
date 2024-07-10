@@ -5,6 +5,7 @@ import AllTypes from "./components/pages/types/alltypes"
 import AllBrands from "./components/pages/brands/allbrands"
 import AllListings from "./components/pages/listings/all_listings"
 import FindaCar from "./components/pages/search/find"
+import SearchResult from "./components/pages/search/search_result"
 
 function App() {
    return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="carbrands" element={<AllBrands />} />
             <Route path="featured" element={<AllListings />} />
             <Route path="find" element={<FindaCar />} />
+            <Route path="search_result" element={<SearchResult />} />
          </Routes>
       </BrowserRouter>
    )
