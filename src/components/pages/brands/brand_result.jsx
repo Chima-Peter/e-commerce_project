@@ -5,6 +5,7 @@ import MobileBar from "../../utils/nav/mobileBar"
 import BrandSearch from "./brand_search"
 
 function Brand() {
+   let searchBrand = JSON.parse(localStorage.getItem('searchBrand'))
   return (
    <main className='flex flex-col gap-6 min-h-[100vh] justify-between font-main'>
       <MediaQuery minWidth={'801px'}>
@@ -14,8 +15,8 @@ function Brand() {
          <MobileBar />
       </MediaQuery>
    <div>
-      <h3 className="text-blue-950 font-bold mb-4 ml-4 md:ml-8 lg:ml-14 text-2xl mt-16 md:mt-24 lg:mt-28">
-         Your Search Result...
+      <h3 className="text-blue-950 font-bold mb-4 ml-4 md:ml-8 lg:ml-14 text-2xl mt-16 md:mt-28 lg:mt-2">
+         {searchBrand} cars....
       </h3>
       <BrandSearch />
    </div>

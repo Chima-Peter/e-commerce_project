@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { motion } from 'framer-motion'
-import Icon from '@mdi/react'
-import { mdiShopping } from '@mdi/js';
 import { MdCancelPresentation } from "react-icons/md";
 
 function MobileBar({home=false}) {
@@ -12,6 +10,13 @@ function MobileBar({home=false}) {
 
    const handleIcon = () => {
       setIcon(!icon)
+   }
+   const handleContact = () => {
+      setIcon(true)
+      window.scrollTo({
+         top: document.documentElement.scrollHeight,
+         behavior: "smooth"
+      })
    }
 
    useEffect(() => {
@@ -71,12 +76,9 @@ function MobileBar({home=false}) {
                      </Link>
                   </li>
                   <li className={`hover:text-blue-500  text-xs font-semibol}`}>
-                     <Link onClick={() => {
-                        window.scrollTo({
-                           top: document.documentElement.scrollHeight,
-                           behavior: "smooth"
-                        });
-                     }}>Contact Us</Link>
+                     <Link onClick={handleContact}>
+                        Contact Us
+                     </Link>
                   </li>
                </motion.ul>
          }
