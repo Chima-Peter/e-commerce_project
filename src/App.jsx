@@ -6,7 +6,7 @@ import AllBrands from "./components/pages/brands/allbrands"
 import AllListings from "./components/pages/listings/all_listings"
 import FindaCar from "./components/pages/search/find"
 import SearchResult from "./components/pages/search/search_result"
-import DesktopFooter from "./components/utils/nav/desktopFooter"
+import Brand from "./components/pages/brands/brand_result"
 
 function App() {
    return (
@@ -21,6 +21,7 @@ function App() {
             <Route path="featured" element={<AllListings />} />
             <Route path="find" element={<FindaCar />} />
             <Route path="search_result" element={<SearchResult />} />
+            <Route path="brands" element={<Brand />} />
          </Routes>
       </BrowserRouter>
    )

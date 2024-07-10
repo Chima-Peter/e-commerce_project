@@ -1,8 +1,8 @@
-import {  DecodeCars } from "../../utils/carData/cars"
+import { DecodeCars } from "../../utils/carData/cars"
 import { useState, useEffect } from "react"
 import ListinBox from "../../utils/display/listinBox"
 
-function SortData({overflow=false}) {
+function BrandSearch({overflow=false}) {
    const [show, setShow] = useState(false)
    const [activeBtn, setActiveBtn] = useState(
       {
@@ -26,14 +26,15 @@ function SortData({overflow=false}) {
    useEffect(() => {
       const fetchData = async () => {
          let response = DecodeCars()
-         let searchData = JSON.parse(localStorage.getItem('searchData'))
-         if (response && searchData) {
+         let searchBrand = JSON.parse(localStorage.getItem('searchBrand'))
+         if (response && searchBrand) {
                const tempStock = []
                const tempUsed = []
                const tempNew = []
                const tempSold = []
                response.forEach((car) => {
-                  if ((searchData.model == car.sortedCarModels[car.carData]) && (searchData.make == car.carData))
+                  console.log(car)
+                  if (searchBrand == car.carData)
                      {
                         if (car.carStock == 'yes')
                            tempStock.push(car)
@@ -98,7 +99,7 @@ function SortData({overflow=false}) {
             ))
          }
          {
-            (show && activeBtn.val1 && (inStockCars.length == 0)) && <h2 className="font-semibold text-gray-500 mt-10 text-2xl ">
+            (activeBtn.val1 && (inStockCars.length == 0)) && <h2 className="font-semibold text-gray-500 mt-10 text-2xl ">
                We apologise but we currently don't have your search car model in this category.
             </h2>
          }
@@ -110,7 +111,7 @@ function SortData({overflow=false}) {
             ))
          }
          {
-            (show && activeBtn.val2 && (newCars.length == 0)) && <h2 className="font-semibold text-gray-500 mt-10 text-2xl ">
+            (activeBtn.val2 && (newCars.length == 0)) && <h2 className="font-semibold text-gray-500 mt-10 text-2xl ">
                We apologise but we currently don't have your search car model in this category.
             </h2>
          }
@@ -122,7 +123,7 @@ function SortData({overflow=false}) {
             ))
          }
          {
-            (show && activeBtn.val3 && (usedCars.length == 0)) && <h2 className="font-semibold text-gray-500 mt-10 text-2xl ">
+            (activeBtn.val3 && (usedCars.length == 0)) && <h2 className="font-semibold text-gray-500 mt-10 text-2xl ">
                We apologise but we currently don't have your search car model in this category.
             </h2>
          }
@@ -134,7 +135,7 @@ function SortData({overflow=false}) {
             ))
          }
          {
-            (show && activeBtn.val4 && (soldCars.length == 0)) && <h2 className="font-semibold text-gray-500 mt-10 text-2xl ">
+            (activeBtn.val4 && (soldCars.length == 0)) && <h2 className="font-semibold text-gray-500 mt-10 text-2xl ">
                We apologise but we currently don't have your search car model in this category.
             </h2>
          }
@@ -143,4 +144,4 @@ function SortData({overflow=false}) {
   )
 }
 
-export default SortData
+export default BrandSearch
