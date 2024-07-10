@@ -1,33 +1,59 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { EncodeCars, DecodeCars } from './carData/cars'
+import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 
 function Search() {
-   const [toggle, settoggle] = useState(true)
-
+   const [newT, setNew] = useState(true)
+   const navigate = useNavigate()
+   const [usedT, setUsed] = useState(false)
    const [searchData, setSearchData] = useState({
-      make: '',
-      model: '',
-      minPrice: '0',
+      make: 'Tesla',
+      model: 'Model 3',
+      minPrice: '10000',
       maxPrice: '1000000',
-      condition: toggle
+      new: true,
+      used: false
    })
+   const [colo, setColo] = useState(false)
    const [carModel, setCarModel] = useState()
    const [carList, setCarList] = useState()
+   const [loadin, setLoading] = useState(false)
    const [show, setShow] = useState(false)
    const [searchModel, setSearchModel] = useState()
 
-   const changeToggle = () => {
-      settoggle(!toggle)
+   const changeNew = () => {
+      setSearchData({ ...searchData, "new": true, "used": false})
+      setNew(true)
+      setUsed(false)
+   }
+   const changeUsed = () => {
+      setSearchData({ ...searchData, "used": true, "new": false})
+      setUsed(true)
+      setNew(false)
    }
    const handleMake = (event) => {
-      setSearchData({ ...searchData, [event.target.name]: event.target.value})
+      setSearchData({ ...searchData, [event.target.name]: event.target.value, model: ''})
       setCarModel(searchModel.carModels[event.target.value])
+      setColo(false)
    }
    const handleSearchData = (event) => {
+      setColo(false)
       setSearchData({ ...searchData, [event.target.name]: event.target.value})
    }
    const handleSubmit = () => {
-      console.log('');
+      event.preventDefault()
+      setTimeout(() => {
+         if (searchData.model != '' )
+         {
+            localStorage.setItem('searchData', JSON.stringify(searchData))
+            navigate('/')
+         }
+         else {
+            setColo(true)
+         }
+         setLoading(false)
+      }, 1000)
    }
 
    useEffect(() => {
@@ -44,6 +70,12 @@ function Search() {
       fetchData()
    }, [])
 
+   const rotateVariant = {
+      final: {
+         rotate: 360,
+      }
+   }
+
   return (
    <form 
       onSubmit={handleSubmit} 
@@ -51,11 +83,11 @@ function Search() {
       <div 
          className='flex gap-0 border rounded-lg border-blue-600'>
          <button  
-            className={`rounded-l-lg ${toggle ? 'text-white bg-blue-600' : 'bg-white text-blue-600'} border-0 py-1.5 focus:border-0 font-medium text-xs w-[150px]`} type="button" onClick={changeToggle}>
+            className={`rounded-l-lg ${newT ? 'text-white bg-blue-600' : 'bg-white text-blue-600'} border-0 py-1.5 focus:border-0 font-medium text-xs w-[150px]`} type="button" onClick={changeNew}>
             New Car  
          </button>
          <button 
-            className={` font-medium  rounded-r-lg border-0 py-1.5 focus:border-0 w-[150px] text-xs ${!toggle ? 'text-white bg-blue-600' : 'bg-white text-blue-600'}`} type="button" onClick={changeToggle}>
+            className={` font-medium  rounded-r-lg border-0 py-1.5 focus:border-0 w-[150px] text-xs ${usedT ? 'text-white bg-blue-600' : 'bg-white text-blue-600'}`} type="button" onClick={changeUsed}>
             Used Car
          </button>
       </div>
@@ -80,7 +112,7 @@ function Search() {
          </select>
       </div>
       <div
-          className='flex flex-col py-1 items-start  rounded-md border border-gray-300 gap-1'>
+          className={`flex flex-col py-1 items-start  rounded-md border border-gray-300 gap-1 ${ colo ? 'border border-red-500' : ''}`}>
          <label 
             htmlFor='model' className='px-2 text-[10px] font-semibold  text-blue-950'>
             Select Model
@@ -114,7 +146,8 @@ function Search() {
                   name="minPrice" 
                   id="minPrice" 
                   autoFocus
-                  min={'0'}
+                  min={'10000'}
+                  max={'99999'}
                   value={searchData.minPrice}
                   placeholder='0'
                   onChange={handleSearchData}
@@ -127,7 +160,7 @@ function Search() {
                <input 
                   type="number" 
                   name="maxPrice" 
-                  min={'0'}
+                  min={'100000'}
                   max={'1000000'}
                   id="maxPrice" 
                   value={searchData.maxPrice} 
@@ -137,11 +170,23 @@ function Search() {
             </label>
          </div>
       </div>
-      <button 
-         className='bg-blue-600 text-white border border-blue-600 rounded-lg text-sm font-semibold py-1'
-         type="submit">
-         Search
-      </button>
+      <motion.button 
+         type="submit"
+          className=' bg-blue-600 border flex justify-center items-center font-extrabold w-100 text-white rounded-xl p-2' 
+          onClick={() => {setLoading(true)}}>
+            {
+                     !loadin && <span>Find Car</span>
+                  }
+                  {
+                     loadin && <motion.div variants={rotateVariant} animate="final" transition= {{
+                        repeat: Infinity,
+                        ease: 'linear',
+                        duration: 0.3
+                     }}
+                     className='w-4 p-1 h-4 border-t-2 border-b-2 border-solid border-r-0 border-red border-l-2 rounded-full'></motion.div>
+                  }
+            </motion.button>
+
    </form>
   )
 }
