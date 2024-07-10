@@ -14,6 +14,7 @@ function Listin({index, overflow=false}) {
    const [inStockCars, setInStockCars] = useState([])
    const [usedCars, setUsedCars] = useState([])
    const [newCars, setNewCars] = useState([])
+   const [soldCars, setSoldCars] = useState([])
 
    const handleBtns = (val) => {
       const newData = {}
@@ -27,14 +28,17 @@ function Listin({index, overflow=false}) {
          if (response) {
                const tempStock = []
                const tempUsed = []
+               const tempSold = []
                const tempNew = []
                response.forEach((car) => {
                   if (car.carStock == 'yes')
                      tempStock.push(car)
-                  if (car.condition == 'New')
+                  if (car.condition == 'New' && car.carStock == 'yes')
                      tempNew.push(car)
-                  if (car.condition == 'Used')
+                  if (car.condition == 'Used' && car.carStock == 'yes')
                      tempUsed.push(car)
+                  if (car.carStock == 'no')
+                     tempSold.push(car)
                })
                if (tempStock) {
                   setInStockCars(tempStock)
@@ -46,6 +50,10 @@ function Listin({index, overflow=false}) {
                }
                if (tempUsed) {
                   setUsedCars(tempUsed)
+                  setShow(true)
+               }
+               if (tempSold) {
+                  setSoldCars(tempSold)
                   setShow(true)
                }
             }
@@ -70,6 +78,11 @@ function Listin({index, overflow=false}) {
             onClick={() => handleBtns('val3')}>
             Used Cars
          </button>
+         <button 
+            className={`text-blue-950 pb-1 text-xs font-extrabold ${activeBtn.val4 ? 'border-b-2 border-b-blue-950 rounded-sm' : ''}`} 
+            onClick={() => handleBtns('val4')}>
+            Sold Out
+         </button>
       </div>
       <div  className={`flex ${ overflow ? 'w-[98%] pb-4 overflow-x-auto customScroll gap-5' : 'overflow-hidden justify-evenly items-start flex-wrap gap-x-3 gap-y-5'}`}>
          {
@@ -88,6 +101,13 @@ function Listin({index, overflow=false}) {
          }
          {
             (show && activeBtn.val3) && usedCars.map((car, index) => (
+               <div key={`${car}-${index}`} className="cursor-pointer w-fit shadow-lg rounded-lg">
+                  <ListinBox show={overflow} car={car} index={index} />
+               </div>
+            ))
+         }
+         {
+            (show && activeBtn.val4) && soldCars.map((car, index) => (
                <div key={`${car}-${index}`} className="cursor-pointer w-fit shadow-lg rounded-lg">
                   <ListinBox show={overflow} car={car} index={index} />
                </div>

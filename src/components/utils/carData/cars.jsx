@@ -92,7 +92,7 @@ function numberWithCommas(x) {
    const check = localStorage.getItem('cars')
    if (!check) {
       const additionalCars = [];
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 500; i++) {
       additionalCars.push(generateRandomCar());
       }
       const response = JSON.stringify(additionalCars)

@@ -71,7 +71,12 @@ function MobileBar({home=false}) {
                      </Link>
                   </li>
                   <li className={`hover:text-blue-500  text-xs font-semibol}`}>
-                     <Link>Contact Us</Link>
+                     <Link onClick={() => {
+                        window.scrollTo({
+                           top: document.documentElement.scrollHeight,
+                           behavior: "smooth"
+                        });
+                     }}>Contact Us</Link>
                   </li>
                </motion.ul>
          }

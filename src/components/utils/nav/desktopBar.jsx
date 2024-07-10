@@ -80,7 +80,12 @@ function DesktopBar() {
                </Link>
             </li>
             <li className={`hover:text-blue-500  text-xs font-semibold  ${isScrolled ? 'hover:text-blue-600 text-blue-950' : ''}`}>
-               <Link>Contact Us</Link>
+               <Link onClick={() => {
+                  window.scrollTo({
+                     top: document.documentElement.scrollHeight,
+                     behavior: "smooth"
+                  });
+               }}>Contact Us</Link>
             </li>
          </ul>
       </MediaQuery>
