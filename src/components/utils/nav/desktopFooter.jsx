@@ -8,22 +8,22 @@ function DesktopFooter() {
          <div className="h-[2px] bg-white w-[50vw]"></div>
          <ul className="flex gap-3">
             <li className="flex text-xs items-center gap-2">
-               <Link>
+               <Link to='/'>
                   <FaTwitter className="w-5 h-5" />
                </Link>
             </li>
             <li className="flex text-xs items-center gap-2">
-               <Link>
+               <Link to='/'>
                   <FaInstagram className="w-5 h-5"/>
                </Link>
             </li>
             <li className="flex text-xs items-center gap-2">
-               <Link>
+               <Link to='/'>
                   <FaFacebook className="w-5 h-5"/>
                </Link>
             </li>
             <li className="flex text-xs items-center gap-2">
-               <Link>
+               <Link to='/'>
                   <FaLinkedin className="w-5 h-5" />
                </Link>
             </li>
