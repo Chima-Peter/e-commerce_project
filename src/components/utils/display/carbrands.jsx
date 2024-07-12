@@ -1,5 +1,5 @@
 import { TbCarSuv } from "react-icons/tb";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function CarBrands({index=20, overflow=false}) {
    const navigate = useNavigate()

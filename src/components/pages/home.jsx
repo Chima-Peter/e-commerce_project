@@ -12,6 +12,7 @@ import { useRef, useEffect, useState } from "react"
 import Listin from "../utils/display/listings"
 import DesktopFooter from "../utils/nav/desktopFooter"
 import MobileBar from "../utils/nav/mobileBar"
+import { object } from "yup"
 
 function Home() {
    const slides = [
@@ -43,7 +44,7 @@ function Home() {
         const newWidth = containerRef.current.clientWidth;
         setContainerWidth(newWidth);
       }
-  }, [])
+  })
 
   useEffect(() => {
     if (imageRef.current && containerWidth > 0) {
@@ -52,13 +53,10 @@ function Home() {
       containerRef.current.style.height = `${newHeight}px`;
     }
   }, [containerWidth]); 
-  const addBorder = () => {
-   const nav = navRef.current
-}
 
 
   return (
-   <main className='overflow-hidden flex flex-col font-main gap-6 md:md-10 lg:gap-14' onScroll={addBorder}>
+   <main className='overflow-hidden flex flex-col font-main gap-6 md:md-10 lg:gap-14' >
       <MediaQuery minWidth={'801px'}>
          <HomeDesktopBar />
       </MediaQuery>
@@ -71,7 +69,7 @@ function Home() {
             slides.map((slide) => (
                <div 
                   className='relative ' key={slide.image}>
-                  <img ref={imageRef} src={slide.image} />
+                  <img ref={imageRef} src={slide.image} rel="preload" fetchPriority="high" />
                </div>               
             ))
          }
