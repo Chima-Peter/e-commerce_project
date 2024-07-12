@@ -12,14 +12,14 @@ import { useRef, useEffect, useState } from "react"
 import Listin from "../utils/display/listings"
 import DesktopFooter from "../utils/nav/desktopFooter"
 import MobileBar from "../utils/nav/mobileBar"
-import { object } from "yup"
+import { EncodeCars } from "../utils/carData/cars"
 
 function Home() {
    const slides = [
-      {image: `/e-commerce_project/components/pages/w14.jpg`},
-      {image: "/e-commerce_project/components/pages/w15.jpg"},
-      {image: "/e-commerce_project/components/pages/w16.jpg"},
-      {image: "/e-commerce_project/components/pages/w17.jpg"},
+      {image: `w14.webp`},
+      {image: "w15.webp"},
+      {image: "w16.webp"},
+      {image: "w17.webp"},
    ]
    const imageRef = useRef(null);
    const containerRef = useRef(null);
@@ -38,6 +38,8 @@ function Home() {
 
     return () => window.removeEventListener('resize', handleResize);
   }, [])
+
+  useEffect(() => {EncodeCars()}, [])
 
   useEffect(() => {
       if (containerRef.current) {
@@ -69,7 +71,14 @@ function Home() {
             slides.map((slide) => (
                <div 
                   className='relative ' key={slide.image}>
-                  <img ref={imageRef} src={slide.image} rel="preload" fetchPriority="high" />
+                  <img 
+                     src={`/e-commerce_project/components/pages/desktop/${slide.image}`} ref={imageRef} 
+                     srcSet={`/e-commerce_project/components/pages/mobile/${slide.image} 300w, /e-commerce_project/components/pages/tablet/${slide.image} 600w, /e-commerce_project/components/pages/desktop/${slide.image} 1200w`} 
+                     sizes="(max-width: 600px) 300px, (max-width: 1200px) 600px, 1200px"
+                     alt="Background Image" 
+                     rel="preload" 
+                     fetchpriority="high"
+                     />
                </div>               
             ))
          }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { EncodeCars, DecodeCars } from './carData/cars'
+import { DecodeCars } from './carData/cars'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 
@@ -58,7 +58,6 @@ function Search() {
 
    useEffect(() => {
       const fetchData = async () => {
-         EncodeCars()
          let response = DecodeCars()
          if (response) {
                setCarList(response[0].carLists)

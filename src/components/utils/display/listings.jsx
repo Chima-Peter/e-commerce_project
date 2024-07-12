@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import {DecodeCars, EncodeCars} from '../carData/cars'
+import {DecodeCars} from '../carData/cars'
 import ListinBox from "./listinBox"
 
 function Listin({index, overflow=false}) {
