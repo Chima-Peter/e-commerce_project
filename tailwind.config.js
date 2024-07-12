@@ -11,8 +11,8 @@ export default {
       },
      extend: {
       fontFamily:{
-         'main': 'Raleway',
-         'price': 'Roboto'
+         'main': ['Raleway'],
+         'price': ['Roboto']
       },
       backgroundImage: {
          'img1': "url('/components/pages/w14.jpg')",

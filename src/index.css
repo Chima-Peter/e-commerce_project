@@ -3,6 +3,18 @@
 @tailwind utilities;
 
 
+
+@layer base {
+   @font-face {
+     font-family: 'Roboto';
+     src: url('/components/fonts/Roboto/Roboto-Medium.ttf');
+   }
+   @font-face {
+      font-family: 'Raleway';
+      src: url('/components/fonts/Raleway/static/Raleway-Medium.ttf');
+    }
+ }
+
 @layer utilities {
    .customScroll::-webkit-scrollbar {
       width: 3px;
