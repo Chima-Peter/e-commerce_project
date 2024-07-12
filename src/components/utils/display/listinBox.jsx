@@ -5,7 +5,7 @@ import { numberWithCommas } from "../carData/cars";
 function ListinBox({car, index, show}) {
   return (
    <>
-      <img src={car['carImage']} alt="" rel="preload"  className={`rounded-t-lg bg-contain ${!show ? 'w-[150px] h-[100px] md:w-[180px]' : 'min-w-[250px] h-[100px] md:min-w-[300px] md:h-[150px]'}`} />
+      <img src={car['carImage']} alt={`${car.carData} - ${car.sortedCarModels[car.carData]}`} rel="preload"  className={`rounded-t-lg bg-contain ${!show ? 'w-[150px] h-[100px] md:w-[180px]' : 'min-w-[250px] h-[100px] md:min-w-[300px] md:h-[150px]'}`} />
       <div className="flex flex-col gap-2 bg-white p-4 rounded-b-lg">
          <h5 className="text-blue-950 text-xs font-bold font-price">
             {car.condition} {car.carData} {car.sortedCarModels[car.carData]}
