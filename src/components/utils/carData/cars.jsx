@@ -51,20 +51,20 @@ function generateRandomCar() {
    ];  
 
 const carImages = [
-   "/e-commerce_project/components/utils/WEBP/car-1.jpg",
-   "/e-commerce_project/components/utils/WEBP/car-2.jpg",
-   "/e-commerce_project/components/utils/WEBP/car-3.jpg",
-   "/e-commerce_project/components/utils/WEBP/car-4.jpg",
-   "/e-commerce_project/components/utils/WEBP/car-5.jpg",
-   "/e-commerce_project/components/utils/WEBP/car-6.jpg",
-   "/e-commerce_project/components/utils/WEBP/car-7.jpg",
-   "/e-commerce_project/components/utils/WEBP/car-8.jpg",
-   "/e-commerce_project/components/utils/WEBP/car-9.jpg",
-   "/e-commerce_project/components/utils/WEBP/car-10.jpg",
-   "/e-commerce_project/components/utils/WEBP/car-11.jpg",
-   "/e-commerce_project/components/utils/WEBP/car-12.jpg",
-   "/e-commerce_project/components/utils/WEBP/car-13.jpg",
-   "/e-commerce_project/components/utils/WEBP/car-14.jpg",
+   "/e-commerce_project/components/utils/WEBP/car-1.webp",
+   "/e-commerce_project/components/utils/WEBP/car-2.webp",
+   "/e-commerce_project/components/utils/WEBP/car-3.webp",
+   "/e-commerce_project/components/utils/WEBP/car-4.webp",
+   "/e-commerce_project/components/utils/WEBP/car-5.webp",
+   "/e-commerce_project/components/utils/WEBP/car-6.webp",
+   "/e-commerce_project/components/utils/WEBP/car-7.webp",
+   "/e-commerce_project/components/utils/WEBP/car-8.webp",
+   "/e-commerce_project/components/utils/WEBP/car-9.webp",
+   "/e-commerce_project/components/utils/WEBP/car-10.webp",
+   "/e-commerce_project/components/utils/WEBP/car-11.webp",
+   "/e-commerce_project/components/utils/WEBP/car-12.webp",
+   "/e-commerce_project/components/utils/WEBP/car-13.webp",
+   "/e-commerce_project/components/utils/WEBP/car-14.webp",
 ]
 
    modelList.map((model, index) => {
